@@ -12,11 +12,33 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
-    /*
-     
-     write your function here
-     
-     */
-
+    func solveTrivia(statesDict: [String: String]) -> String {
+      
+        for (key, value) in statesDict {
+            let state = key
+            let characterForState = [Character](state.lowercaseString.characters)
+            
+            let capital = value
+            let characterForCapital = [Character](capital.lowercaseString.characters)
+            
+//            let similarCharacters = characterForCapital.filter { c in
+//                return characterForState.contains(c)
+//            }
+//            
+            let searchForCharacter = characterForCapital.filter { characterForState.contains($0) }
+            print(searchForCharacter)
+            
+            if searchForCharacter.isEmpty {
+                print(key)
+                return key
+                
+            }
+            
+        }
+        
+        return ""
+        
+        
+    }
+    
 }
-
